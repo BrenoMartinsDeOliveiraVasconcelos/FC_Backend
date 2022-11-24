@@ -1,6 +1,6 @@
 import playsound
 import multiprocessing
-import os
+import subprocess
 
 
 def playsd(path):
@@ -19,5 +19,8 @@ def play():
                 tg.start()
                 open("C:\\FC_Backend\\pid\\pid", "w+").write(str(tg.pid))
         else:
-            os.system(f"taskkill /F /PID {open('C:/FC_Backend/pid/pid', 'r').readlines()[0]}")
-            running = False
+            try:
+                subprocess.run(args=["taskkill", "/F", "/PID", f"{open('C:/FC_Backend/pid/pid', 'r').readlines()[0]}"])
+                running = False
+            except subprocess.SubprocessError:
+                print("Ignorand!")
