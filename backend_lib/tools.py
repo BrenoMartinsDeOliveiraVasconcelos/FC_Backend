@@ -9,21 +9,21 @@ def reg(mode, dontregister):
     if dontregister == 0:
         with open("C:\\FC_Backend\\registro.csv", "a", encoding="utf-8", newline='') as regist:
             file = csv.writer(regist, delimiter=";")
-            lines = []
             row = [datetime.datetime.now().strftime("%d/%m/%Y %H:%M")]
-                        # Gambiarra pra eliminar duplicações desnecessárias
-            with open("C:\\FC_Backend\\registro.csv", "r", newline='', encoding="utf-8") as reg_r:
-                filer = csv.reader(reg_r, delimiter=";")
-
-                for r in filer:
-                    lines.append(r)
+            rows = []
 
             if mode == "0":
-                row.append("DESATIVADO")
+                row.append("DESATIVADO\n")
             elif mode == "1":
-                row.append("ATIVADO")
+                row.append("ATIVADO\n")
             else:
                 pass
 
-            if lines[-1][1] != row[1]:
+            with open("C:\\FC_Backend\\registro.csv", "r", encoding="utf-8", newline='') as rd:
+                fl = csv.reader(rd, delimiter=";")
+
+                for r in fl:
+                    rows.append(r)
+
+            if rows[-1][1] != row[1]:
                 file.writerow(row)
