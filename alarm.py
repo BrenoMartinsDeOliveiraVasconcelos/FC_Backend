@@ -11,7 +11,7 @@ def alarmsystem():
         if close_thread.readline().strip("\n") == "1":
             close_thread.close()
 
-            closew = open("C:\\FC_Backend\\pid\\alarm_thread", "W")
+            closew = open("C:\\FC_Backend\\pid\\alarm_thread", "w")
             closew.write("0")
             alarm_sound.terminate()
 
