@@ -1,4 +1,6 @@
 import multiprocessing
+import traceback
+
 from backend_lib import tools, functions
 
 
@@ -21,7 +23,6 @@ def alarmsystem():
         file = open("C:\\FC_Backend\\alarm.fc", "r")
         content = file.readline().split("\n")
         index = -1
-        error = 0
 
         # Andando pelo arquivo
         for text in content:
