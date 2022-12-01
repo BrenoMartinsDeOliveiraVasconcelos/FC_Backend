@@ -12,10 +12,14 @@ def reg(mode, dontregister):
             row = [f'{datetime.datetime.now().strftime("%d/%m/%Y %H:%M")}']
             rows = []
 
-            if mode == "0":
-                row.append("DESATIVADO\n")
+            if mode == "-2":
+                row.append("PROGRAMA INICIADO\n")
+            elif mode == "-1":
+                row.append("PROGRAMA FECHADO\n")
+            elif mode == "0":
+                row.append("ALARME DESATIVADO\n")
             elif mode == "1":
-                row.append("ATIVADO\n")
+                row.append("ALARME ATIVADO\n")
             else:
                 pass
 

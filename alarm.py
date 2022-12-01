@@ -15,6 +15,7 @@ def alarmsystem():
             closew.write("0")
             alarm_sound.terminate()
 
+            tools.reg("-1", 0)
             exit(0)
 
         file = open("C:\\FC_Backend\\alarm.fc", "r")
@@ -34,4 +35,5 @@ def alarmsystem():
 
 
 if __name__ == '__main__':
+    tools.reg("-2", 0)
     alarmsystem()
