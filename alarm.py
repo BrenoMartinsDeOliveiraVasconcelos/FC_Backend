@@ -1,13 +1,13 @@
 import multiprocessing
-import traceback
-
 from backend_lib import tools, functions
 
 
 def alarmsystem():
     alarm_sound = multiprocessing.Process(target=functions.play, args=())
     alarm_sound.start()
+    run = 0
     while True:
+        run += 1
         # Pra fechar a thread através do programa principal
         close_thread = open("C:\\FC_Backend\\pid\\alarm_thread", "r")
         if close_thread.readline().strip("\n") == "1":
@@ -25,13 +25,12 @@ def alarmsystem():
         index = -1
 
         # Andando pelo arquivo
-        for text in content:
+        for mode in content:
             index += 1
 
             # Checa a ativação do alarme
             if index == 0:
-                error = 0
-                tools.reg(text, error)
+                tools.reg(mode, 0)
         file.close()
 
 

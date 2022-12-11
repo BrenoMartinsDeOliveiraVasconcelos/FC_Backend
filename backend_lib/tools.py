@@ -3,7 +3,7 @@ import csv
 
 
 # Função para registrado para ativação e desativação
-def reg(mode, dontregister):
+def reg(mode: str, dontregister: int):
     # 0 é alarme desativado, 1 é alarme ativado
 
     if dontregister == 0:
@@ -11,15 +11,20 @@ def reg(mode, dontregister):
             file = csv.writer(regist, delimiter=";", quoting=csv.QUOTE_NONE, escapechar=' ')
             row = [f'{datetime.datetime.now().strftime("%d/%m/%Y %H:%M")}']
             rows = []
+            started = "PROGRAMA INICIADO"
+            ended = "PROGRAMA FECHADO"
+
+            activated = "SEM ALARME"
+            desactivated = "ALARME ACIONADO"
 
             if mode == "-2":
-                row.append("PROGRAMA INICIADO")
+                row.append(started)
             elif mode == "-1":
-                row.append("PROGRAMA FECHADO")
+                row.append(ended)
             elif mode == "0":
-                row.append("ALARME DESATIVADO")
+                row.append(desactivated)
             elif mode == "1":
-                row.append("ALARME ATIVADO")
+                row.append(activated)
             else:
                 pass
 
