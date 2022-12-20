@@ -14,8 +14,8 @@ def reg(mode: str, dontregister: int):
             started = "PROGRAMA INICIADO"
             ended = "PROGRAMA FECHADO"
 
-            activated = "SEM ALARME"
-            desactivated = "ALARME ACIONADO"
+            activated = "ALARME ACIONADO"
+            desactivated = "SEM ALARME"
 
             if mode == "-2":
                 row.append(started)
